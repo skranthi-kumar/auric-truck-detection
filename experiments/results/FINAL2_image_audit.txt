@@ -1,0 +1,63 @@
+FINAL2 mAP50 0.2742
+
+1-2. image leaderboard (sorted by AP attributed to the image's false positives)
+          W     H  in_train_range  scale_ratio  n_gt  gt_side_p10  gt_side_med  gt_lt16px  unrecovered_gt  low_rank_gt  hiconf_fp  hiconf_tp  dAP_if_FPs_removed  dAP_if_unrecovered_GT_found  scale_anomaly density
+image                                                                                                                                                                                                               
+2293   3597  2726            True         1.01   145         21.3         28.9          6              10           11        132         81              0.0142                       0.0016          False   dense
+2472   3193  3196            True         0.99   101         24.5         34.1          0               8           13        123         56              0.0123                       0.0013          False   dense
+2308   7204  5458           False         2.00    76         25.9         31.7          0               2           10        276         29              0.0104                       0.0038           True  medium
+1447   2957  2814            True         1.04    43         19.9         27.2          0               1            7         22         23              0.0100                       0.0008          False  medium
+2470   3193  3196            True         0.99   153         28.4         41.4          1               2           17         89        101              0.0082                       0.0003          False   dense
+2391   7072  5932           False         2.06   108         22.3         30.9          0               3           24        188         25              0.0077                       0.0005           True   dense
+1206   2892  2891            True         0.97    97         14.4         25.5         17              25            6        163         44              0.0073                       0.0015          False   dense
+1399   3294  3059            True         1.00    28         34.5         42.3          0               1            4         21         16              0.0053                       0.0008          False  sparse
+1530   3237  3219            True         1.00    14         16.0         20.7          2               1            1         20          6              0.0049                       0.0000          False  sparse
+20     3093  2931            True         0.78    43         22.2         26.4          1               0            3         50         19              0.0048                       0.0000          False  medium
+1929   4979  3183            True         1.01    77         16.3         21.2          6               6           12         65         11              0.0037                       0.0015          False  medium
+31     3094  2932            True         1.00    35         15.9         21.0          5               2            5         30          7              0.0036                       0.0002          False  sparse
+1211   2893  2892            True         1.03   167         12.8         19.3         51              11           41         87         36              0.0033                       0.0005          False   dense
+2139   3134  2992            True         1.00    92         14.2         18.3         27               5            4         73         46              0.0031                       0.0001          False  medium
+1181   2893  2892            True         0.98    33         17.6         22.2          2              11            9         13          5              0.0022                       0.0011          False  sparse
+1362   3698  3049            True         1.02    16         20.4         25.0          1               0            5         23          6              0.0013                       0.0000          False  sparse
+1457   3070  2810            True         1.00    13         15.7         19.1          2               0            0         23          8              0.0009                       0.0000          False  sparse
+2292   3596  2726            True         0.97    30         13.1         26.5          5               5           11          4          2              0.0003                       0.0015          False  sparse
+2543   2912  2428            True         0.96    97         16.7         24.0          9              23           28          7          2              0.0003                       0.0017          False   dense
+2460   1596  1598           False         0.49    86         10.4         16.3         42              25           37          2          3              0.0002                       0.0027           True  medium
+1456   2957  2813            True          NaN     8         12.9         14.3          8               0            8          2          0              0.0001                       0.0000          False  sparse
+2384   1369  1334           False         0.50    90          4.6          9.0         78              60           25          0          0              0.0000                       0.0047           True  medium
+
+3a. false positives (conf >= 0.05) by class x confidence x what the checkpoint believes
+belief                     car  no RFX0 match  one of our 5  other object  other vehicle  same class as predicted
+cls             conf_bin                                                                                         
+Cargo Truck     0.05-0.1  4279           6429           230          1286            811                      188
+                0.1-0.25  2639           2038           459           433           1117                      466
+                >=0.25     126             77            64            13            256                      352
+Truck Tractor   0.05-0.1  2581           2184           934           320            986                        5
+                0.1-0.25   376            244           408            20            379                       10
+                >=0.25       0              3             0             0              2                        0
+Truck w/Box     0.05-0.1  2366           3405           385           977            885                      131
+                0.1-0.25   493            755           638           317            961                      212
+                >=0.25       3             40           108            25            101                      192
+Truck w/Flatbed 0.05-0.1  1509           1696           742           350            990                       70
+                0.1-0.25   175            238           486            56            539                       69
+                >=0.25       0              4            10             1             14                       21
+Truck w/Liquid  0.05-0.1   625            516           656           119            618                        0
+                0.1-0.25    65             36           219            11            165                        1
+                >=0.25       0              0             0             0              1                        0
+
+3b. same by scene
+belief                    car  no RFX0 match  one of our 5  other object  other vehicle  same class as predicted
+scale_anomaly   density                                                                                         
+native scale    sparse   2057           2255           254           887           1883                       76
+                medium   1953           1547           770           487           1531                      258
+                dense    4192           6941          2516          1748           2049                      733
+scale-anomalous medium   2865           2269          1190           321            921                      444
+                dense    4170           4653           609           485           1441                      206
+
+5. diagnostic interventions (recomputed AP on frozen outputs; estimates only)
+                                                 intervention  rows removed  TPs removed     dAP
+                       remove rows the checkpoint calls a car         15349          112 -0.0036
+             remove rows the checkpoint calls another vehicle          8092          267 -0.0330
+                                                  remove both         23441          379 -0.0370
+            remove all FPs in scale-anomalous images (oracle)        917373            0  0.0223
+remove all FPs the checkpoint gives another of our 5 (oracle)          5339            0  0.0146

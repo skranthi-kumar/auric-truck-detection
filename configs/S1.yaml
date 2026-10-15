@@ -1,0 +1,15 @@
+# S1 = stacked candidate (stack-then-ablate, DECISIONS 9 Oct REV 6/7). Changes vs E1:
+#   model yolo11s-p2 (stride-4 head; COCO weights transfer to layers 0-16 = 63% of params)
+#   scale 0.5 -> 0.1 (fixed GSD: trucks never change size at test time; ±10% keeps mild regularisation)
+#   flipud 0 -> 0.5 (overhead imagery has no canonical "up")
+#   epochs 50 -> 40 (E1/E2: val cls loss turns up after ~40-50 ep; E2 rejected)
+# Hypothesis: more effective pixels + less destructive aug raise small-object recall.
+# Decision rule (DECISIONS): paired delta vs E1, SUPPORTED if CI > 0; PROVISIONAL if delta >= 0.01 and P >= 0.9.
+name: S1_p2_s0
+model: configs/yolo11s-p2.yaml
+imgsz: 1280
+epochs: 40
+batch: 16
+seed: 0
+save_period: -1
+train_args: {device: "0,1", pretrained: yolo11s.pt, scale: 0.1, flipud: 0.5}

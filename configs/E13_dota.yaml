@@ -1,0 +1,14 @@
+# E13: ONE change vs E1 -> initialise from DOTA-trained yolo11s-obb.pt instead of COCO yolo11s.pt.
+# Transfer check (10 Oct, local): 493/499 tensors, ~100% of parameters (backbone, neck, box branch); only the
+# 5-class cls layer is new. Hypothesis: aerial pretraining (DOTA has large-/small-vehicle classes at similar GSD)
+# gives features closer to 15-30 px trucks than COCO's large objects -> better detection and fewer depot FPs.
+# Overlap: DOTA v1 imagery is Google Earth / GF-2 / JL-1; xView is WorldView-3 -> no overlap with val. No xView weights used.
+# Same 50 epochs as E1 for a clean one-change comparison; snapshots kept for the ensemble if it wins.
+name: E13_dota_s0
+model: yolo11s.yaml
+imgsz: 1280
+epochs: 50
+batch: 16
+seed: 0
+save_period: 10
+train_args: {device: "0,1", pretrained: yolo11s-obb.pt}

@@ -1,0 +1,18 @@
+
+conf >= 0.5: 239 of 1552 GT boxes have a confident match; model-disagreement rate 0.339 (81 boxes)
+                 confident  disagree   rate
+Cargo Truck            107        39  0.364
+Truck w/Box            110        29  0.264
+Truck w/Flatbed         12         6  0.500
+Truck Tractor            5         5  1.000
+Truck w/Liquid           5         2  0.400
+pairs (GT -> pred): Cargo Truck->Truck w/Box 37, Truck w/Box->Cargo Truck 26, Truck w/Flatbed->Truck w/Box 4, Truck Tractor->Truck w/Box 4, Cargo Truck->Truck w/Flatbed 2, Truck w/Box->Truck w/Flatbed 2, Truck w/Box->Truck w/Liquid 1, Truck w/Flatbed->Cargo Truck 1, Truck w/Flatbed->Truck Tractor 1, Truck Tractor->Truck w/Flatbed 1, Truck w/Liquid->Cargo Truck 1, Truck w/Liquid->Truck w/Box 1
+
+conf >= 0.7: 50 of 1552 GT boxes have a confident match; model-disagreement rate 0.340 (17 boxes)
+                 confident  disagree   rate
+Cargo Truck             17         6  0.353
+Truck w/Box             25         6  0.240
+Truck w/Flatbed          4         3  0.750
+Truck Tractor            2         2  1.000
+Truck w/Liquid           2         0  0.000
+pairs (GT -> pred): Cargo Truck->Truck w/Box 5, Truck w/Box->Cargo Truck 5, Truck w/Flatbed->Truck w/Box 3, Truck Tractor->Truck w/Box 2, Cargo Truck->Truck w/Flatbed 1, Truck w/Box->Truck w/Liquid 1

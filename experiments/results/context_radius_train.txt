@@ -1,0 +1,8 @@
+train: 362 images with >= 2 boxes, 7538 boxes
+- neighbour-majority (radius 50 px): accuracy 0.812 on 4240 boxes (56% have a neighbour)
+- neighbour-majority (radius 100 px): accuracy 0.788 on 5255 boxes (70% have a neighbour)
+- neighbour-majority (radius 150 px): accuracy 0.772 on 5754 boxes (76% have a neighbour)  <- original candidate
+- neighbour-majority (radius 200 px): accuracy 0.756 on 6116 boxes (81% have a neighbour)
+- neighbour-majority (radius 300 px): accuracy 0.738 on 6506 boxes (86% have a neighbour)
+- neighbour-majority (radius 400 px): accuracy 0.727 on 6810 boxes (90% have a neighbour)  <- original candidate
+- neighbour-majority (whole image): accuracy 0.674 on 7538 boxes (100% have a neighbour)  <- original candidate

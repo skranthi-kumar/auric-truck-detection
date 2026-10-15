@@ -1,0 +1,62 @@
+== GT outcome by class (conf>=0.25) ==
+outcome          missed   tp  wrong_cls   All
+cname                                        
+Cargo Truck         584  124         92   800
+Truck Tractor       100    3         14   117
+Truck w/Box         305  138         50   493
+Truck w/Flatbed      88   15         19   122
+Truck w/Liquid       12    2          6    20
+All                1089  282        181  1552
+
+== recall by size within class ==
+                recall                        n                     
+size               <16 16-24 24-32  >=32    <16  16-24  24-32   >=32
+cname                                                               
+Cargo Truck       0.11  0.22  0.15  0.09  196.0  256.0  220.0  128.0
+Truck Tractor     0.00  0.06  0.00  0.00   21.0   53.0   26.0   17.0
+Truck w/Box       0.11  0.21  0.14  0.37   35.0   89.0   99.0  270.0
+Truck w/Flatbed   0.00  0.00  0.09  0.25   10.0   23.0   45.0   44.0
+Truck w/Liquid    0.00  0.40  0.00  0.00    1.0    5.0    2.0   12.0
+
+== recall by crowding within class ==
+                recall                  n              
+crowd                0   1-2   >=3      0    1-2    >=3
+cname                                                  
+Cargo Truck       0.17  0.19  0.13  234.0  215.0  351.0
+Truck Tractor     0.08  0.02  0.02   12.0   41.0   64.0
+Truck w/Box       0.24  0.25  0.30   71.0  109.0  313.0
+Truck w/Flatbed   0.20  0.12  0.10   20.0   42.0   60.0
+Truck w/Liquid    0.00  0.12   NaN    4.0   16.0    NaN
+
+== confusion pairs (GT -> predicted) ==
+                                  n
+cname           best_cls           
+Cargo Truck     Truck w/Box      85
+Truck w/Box     Cargo Truck      45
+Truck w/Flatbed Truck w/Box      10
+Truck Tractor   Truck w/Box       8
+Cargo Truck     Truck w/Flatbed   7
+Truck w/Flatbed Cargo Truck       7
+Truck Tractor   Cargo Truck       5
+Truck w/Box     Truck w/Flatbed   5
+Truck w/Liquid  Truck w/Box       5
+Truck w/Flatbed Truck Tractor     2
+
+== FP error type by predicted class (conf>=0.25) ==
+err               bg  both  cls  dup  loc  All
+cls                                           
+Cargo Truck      223    12   70    0   16  321
+Truck Tractor     18     0    2    0    1   21
+Truck w/Box      128    20  121    1   14  284
+Truck w/Flatbed   30     1   19    0    0   50
+Truck w/Liquid     4     0    0    0    0    4
+All              403    33  212    1   31  680
+
+== FP error type by size ==
+err     bg  both  cls  dup  loc
+size                           
+<16     50     4   15    0    3
+16-24  128     7   24    0   12
+24-32  104     7   68    0    5
+>=32   121    15  105    1   11
+

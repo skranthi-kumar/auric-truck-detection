@@ -1,0 +1,13 @@
+# X2b: X2 + NWD assignment/loss (src/nwd.py). Second shot at the tiny rare classes (Tractor/Liquid,
+# median ~14-17 px) now that full xView supplies enough of them for assignment to matter (the P4 probe
+# tested NWD at a 25% subset and was flat; this retests it with xView-scale data). ONE change vs X2.
+# C=44 px fits xView too (same source imagery, same 2x scale). Compare to X2 under the standard rule.
+name: X2b_xview_finetune_nwd
+model: runs/X1_xview_pretrain/weights/last.pt
+imgsz: 1280
+epochs: 20
+batch: 16
+seed: 0
+save_period: 5
+nwd: true
+train_args: {device: "0,1", lr0: 0.0005}

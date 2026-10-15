@@ -1,0 +1,11 @@
+# E2: ONE change vs E1 -> 100 epochs (E1 val mAP still rising to ep 40; agnostic det mAP only 0.30).
+# Motivation: median truck ~18 px (~2x2 cells at P3 stride 8); E0 recall ~0.10 at epoch 6.
+# Same total batch (16) as E0; run on Kaggle T4x2 (DDP, 8 per GPU).
+name: E2_up2_e100_s0
+model: yolo11s.pt
+imgsz: 1280
+epochs: 100
+batch: 16
+seed: 0
+save_period: 10      # 10 checkpoints in case E2 becomes the final config (5.2)
+train_args: {device: "0,1"}

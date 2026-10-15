@@ -1,0 +1,14 @@
+# P5 clean P2 probe (DECLARED 11 Oct, external review item 2): ONE change vs LC_rand_0250_s1 (same subset, seed,
+# 1280, 30 ep, batch 16, default aug): model yolo11s-p2 (stride-4 head), COCO yolo11s.pt weights where shapes match.
+# Rule: mean over s0/s1 vs mean of LC_rand_0250_s0/s1 (0.0505, 0.0535). Seed spread at 25% = 0.003.
+#   gain >= +0.010 AND both seeds above their own baseline -> P2 helps (worth a full-data run);
+#   |gain| < 0.010 -> no detectable effect; else inconclusive. 25% result may not transfer to full data (either direction).
+name: P5_p2_25_s1
+model: configs/yolo11s-p2.yaml
+imgsz: 1280
+epochs: 30
+batch: 16
+seed: 1
+save_period: -1
+subset: experiments/splits/random_s1_0250.txt
+train_args: {device: "0,1", pretrained: yolo11s.pt}

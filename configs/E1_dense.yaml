@@ -1,0 +1,14 @@
+# E1_dense: ONE change vs E1 -> oversample tiles of dense source images (train.py repeat_dense:
+# r = clip(round(sqrt(n_img / median)), 1, 4); 5125 tiles -> 8635 entries; 321/80/32/10 images at r = 1/2/3/4).
+# Hypothesis H11: val is depot scenes (median 76 boxes/image) while train is mostly sparse (median 7-12);
+# the detector has seen too few dense backgrounds (trailers, containers) -> confident FPs and crowding errors.
+# Iteration-matched to E1: 30 epochs x 8635 ~= 50 x 5125. Decision rule: paired delta vs E1 (standard rule).
+name: E1_dense_s0
+model: yolo11s.pt
+imgsz: 1280
+epochs: 30
+batch: 16
+seed: 0
+save_period: 10      # keep snapshots so a winning run feeds the ensemble without retraining
+repeat_dense: true
+train_args: {device: "0,1"}

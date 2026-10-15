@@ -1,0 +1,14 @@
+# E_max: STACKED run (user request 10 Oct: maximum score, not one-change ablations).
+# vs E1: (1) YOLO11m instead of 11s (capacity for 5-way fine-grained classification; overfitting concern untested),
+#        (2) rare-class repeat-factor sampling t=0.25 (Tractor/Liquid AP ~0 = 40% of macro mAP), iteration-matched 40 ep.
+# Batch 8 (not 16): 11m at 1280 on 2x T4 16 GB. Snapshots saved for the declared ensemble (epoch20, epoch30, last -> WBF -> ctx).
+# Attribution, if it wins: leave-one-out later (E1_m without RFS). Decision rule: paired delta vs E1 / vs ENS_E2_ctx.
+name: E_max_s0
+model: yolo11m.pt
+imgsz: 1280
+epochs: 40
+batch: 8
+seed: 0
+save_period: 10
+repeat_rfs: true
+train_args: {device: "0,1"}

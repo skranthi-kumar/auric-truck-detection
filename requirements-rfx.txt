@@ -1,0 +1,10 @@
+# RF-DETR path (RFX series) - separate environment from requirements.txt (Ultralytics/YOLO path).
+# Versions as used for every RFX number (Mac MPS for inference; Kaggle T4 for fine-tuning: rfdetr[train]).
+rfdetr[train]==1.11.2
+torch==2.14.1
+torchvision==0.29.1
+transformers==5.19.0
+numpy==2.5.4
+pandas==3.0.6
+pillow==12.3.0
+scipy==1.18.1

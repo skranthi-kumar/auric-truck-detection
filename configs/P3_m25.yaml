@@ -1,0 +1,12 @@
+# P3 probe (plan 10 Oct): ONE change vs LC_rand_0250_s0 (same subset random_s0_0250, 30 ep, 1280, seed 0): YOLO11m (capacity). Batch 8 (memory) -> Ultralytics accumulates to nominal 64: small confound, disclosed.
+# DECLARED before run: PASS = full-image mAP50 >= 0.064 (beats both YOLO11s 25% runs 0.051/0.054 by >= +0.01)
+# AND class-agnostic AP50 above LC_rand_0250_s0. PASS -> one full-data run of this variant; FAIL -> no further training.
+name: P3_m25_s0
+model: yolo11m.pt
+imgsz: 1280
+epochs: 30
+batch: 8
+seed: 0
+save_period: -1
+subset: experiments/splits/random_s0_0250.txt
+train_args: {device: "0,1"}

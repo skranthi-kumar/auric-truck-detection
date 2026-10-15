@@ -1,0 +1,9 @@
+# E0 baseline: Ultralytics defaults, COCO-pretrained YOLO11s, 640 px tiles at native resolution.
+name: E0_s0
+model: yolo11s.pt
+imgsz: 640
+epochs: 50
+batch: 16
+seed: 0
+save_period: 5        # 10 checkpoints for 5.2 cartography
+train_args: {}        # defaults only

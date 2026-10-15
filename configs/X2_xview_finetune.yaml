@@ -1,0 +1,13 @@
+# X2: fine-tune the xView-pretrained model on the 443 assignment train tiles (adapts to the
+# depot-dense target distribution that val is drawn from). ONE change vs a from-scratch E1: the init.
+# --tiles points at the existing assignment `tiles` (same as E1); val = assignment val (monitoring).
+# Lower lr0 for fine-tuning. Report last.pt; then predict.py + evaluate.py = directly comparable to E1.
+# save_period 10 leaves snapshots for the same WBF snapshot-ensemble that gave ENS_E2 its +0.022.
+name: X2_xview_finetune
+model: runs/X1_xview_pretrain/weights/last.pt
+imgsz: 1280
+epochs: 20
+batch: 16
+seed: 0
+save_period: 5
+train_args: {device: "0,1", lr0: 0.0005}

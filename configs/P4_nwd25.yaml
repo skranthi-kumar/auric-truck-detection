@@ -1,0 +1,14 @@
+# P4 probe (prepared 10 Oct, launch after P3 reports): ONE change vs LC_rand_0250_s0 (same subset, 30 ep, 1280, seed 0):
+# NWD assignment + 0.5 CIoU / 0.5 NWD box loss (src/nwd.py, C = 44 px fixed = median train box at 2x scale).
+# Evidence: hard-missed population median 13.7 px; NWD +6.7 AP on AI-TOD (Wang et al. 2021).
+# DECLARED: PASS = mAP50 >= 0.064 AND class-agnostic AP50 > LC_rand_0250_s0 -> one full-data run; FAIL -> drop.
+name: P4_nwd25_s0
+model: yolo11s.pt
+imgsz: 1280
+epochs: 30
+batch: 16
+seed: 0
+save_period: -1
+nwd: true
+subset: experiments/splits/random_s0_0250.txt
+train_args: {device: "0,1"}

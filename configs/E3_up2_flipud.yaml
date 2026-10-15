@@ -1,0 +1,12 @@
+# E3: ONE change vs E1 -> vertical flips (flipud 0.5; fliplr 0.5 is already default).
+# Motivation: overhead imagery has no canonical orientation; 5.2 shows rare classes (Liquid, Flatbed,
+# Tractor) are never/poorly learned even on train, and the default aug uses only half the symmetry group.
+# Compared against E1 (same 50 epochs); if E2 shows longer training helps, rebase on E2's schedule.
+name: E3_up2_flipud_s0
+model: yolo11s.pt
+imgsz: 1280
+epochs: 50
+batch: 16
+seed: 0
+save_period: -1
+train_args: {device: "0,1", flipud: 0.5}

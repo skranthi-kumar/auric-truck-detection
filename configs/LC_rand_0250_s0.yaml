@@ -1,0 +1,10 @@
+# 5.3/5.4 reduced recipe (experiments/subset_rule.md): E1 recipe (YOLO11s, 640 tiles @ imgsz 1280, defaults) at 30 ep.
+name: LC_rand_0250_s0
+model: yolo11s.pt
+imgsz: 1280
+epochs: 30
+batch: 16
+seed: 0
+save_period: -1
+subset: experiments/splits/random_s0_0250.txt
+train_args: {device: "0,1"}

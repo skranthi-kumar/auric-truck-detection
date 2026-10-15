@@ -1,0 +1,12 @@
+# X1: pretrain on INDEPENDENT full xView, 5 truck classes, same tiling + 2x upsample as E1.
+# Data: src/xview_dedup.py -> src/xview_to_yolo.py -> src/tile.py (xview_tiles). The 22 val IDs are
+# excluded at conversion time, so no val image is ever seen. Report last.pt (no val selection).
+# --tiles points at the xView tiles. Runtime ~5-7 h on Kaggle 2xT4 (~25k tiles, 30 ep @ 1280).
+name: X1_xview_pretrain
+model: yolo11s.pt
+imgsz: 1280
+epochs: 30
+batch: 16
+seed: 0
+save_period: 10
+train_args: {device: "0,1"}

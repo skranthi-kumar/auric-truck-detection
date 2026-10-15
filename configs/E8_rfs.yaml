@@ -1,0 +1,15 @@
+# E8_rfs: ONE change vs E1 -> repeat-factor sampling at tile level (Gupta et al., LVIS 2019; train.py repeat_rfs).
+# r(tile) = clip(round(max_c sqrt(0.25 / f_c)), 1, 4) over classes present; instance shares f_c = .47/.33/.09/.08/.02
+# -> tiles with Liquid x3, with Flatbed or Tractor x2, others x1; 5125 tiles -> 6421 entries (4051 x1, 852 x2, 222 x3).
+# Hypothesis: Tractor (AP 0.005) and Liquid (0.13; 4% learned on train) are under-trained, not unlearnable;
+# macro mAP50 gives them 40% of the score. Iteration-matched to E1: 40 ep x 6421 ~= 50 x 5125.
+# Rule: paired delta vs E1 (standard); read-out per class, especially Tractor/Liquid AP and Cargo (dilution risk).
+name: E8_rfs_s0
+model: yolo11s.pt
+imgsz: 1280
+epochs: 40
+batch: 16
+seed: 0
+save_period: 10
+repeat_rfs: true
+train_args: {device: "0,1"}

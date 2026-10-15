@@ -1,0 +1,8 @@
+# torch, numpy, pandas, scikit-learn: Colab/Kaggle preinstalled builds (pip freeze saved per run)
+ultralytics==8.4.174
+pycocotools==2.0.11
+imagehash==4.3.2
+timm==1.0.30
+pillow
+pyyaml
+matplotlib

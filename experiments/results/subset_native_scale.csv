@@ -1,0 +1,5 @@
+run,images,n_gt,mAP50,ci,Cargo Truck,Truck w/Box,Truck w/Flatbed,Truck Tractor,Truck w/Liquid
+FINAL2,all 22 (official),1552,0.2742,0.175-0.362,0.173,0.325,0.39,0.038,0.444
+FINAL2,native-scale 18,1192,0.3398,0.240-0.429,0.247,0.415,0.411,0.048,0.578
+ENS_E2_ctx,all 22 (official),1552,0.1392,0.083-0.222,0.172,0.251,0.126,0.005,0.142
+ENS_E2_ctx,native-scale 18,1192,0.1609,0.090-0.268,0.187,0.264,0.141,0.012,0.201

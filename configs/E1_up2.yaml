@@ -1,0 +1,11 @@
+# E1: ONE change vs E0 -> 2x upsampled tiles (imgsz 1280 on 640 px tiles); inference must use --imgsz 1280.
+# Motivation: median truck ~18 px (~2x2 cells at P3 stride 8); E0 recall ~0.10 at epoch 6.
+# Same total batch (16) as E0; run on Kaggle T4x2 (DDP, 8 per GPU).
+name: E1_up2_s0
+model: yolo11s.pt
+imgsz: 1280
+epochs: 50
+batch: 16
+seed: 0
+save_period: -1
+train_args: {device: "0,1"}

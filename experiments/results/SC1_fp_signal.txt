@@ -1,0 +1,49 @@
+SC1, predictions with conf >= 0.05
+1. confidence of TPs vs FP types
+          class type     n  conf p50  conf p90  n conf>=0.25
+    Cargo Truck   tp   657     0.204     0.327           232
+    Cargo Truck  cls   652     0.169     0.279           111
+    Cargo Truck  loc   644     0.085     0.216            40
+    Cargo Truck both   603     0.081     0.163            13
+    Cargo Truck  dup    69     0.100     0.167             1
+    Cargo Truck   bg 14153     0.077     0.171           388
+    Truck w/Box   tp   426     0.287     0.464           251
+    Truck w/Box  cls   775     0.134     0.309           143
+    Truck w/Box  loc   558     0.082     0.216            44
+    Truck w/Box both   518     0.077     0.187            25
+    Truck w/Box  dup    50     0.091     0.184             2
+    Truck w/Box   bg  7011     0.074     0.166           232
+Truck w/Flatbed   tp    99     0.252     0.389            51
+Truck w/Flatbed  cls   923     0.094     0.161            12
+Truck w/Flatbed  loc   119     0.085     0.204             7
+Truck w/Flatbed both   425     0.073     0.132             0
+Truck w/Flatbed  dup     9     0.083     0.120             0
+Truck w/Flatbed   bg  4468     0.070     0.125            34
+  Truck Tractor   tp    65     0.103     0.200             2
+  Truck Tractor  cls   928     0.085     0.132             0
+  Truck Tractor  loc   106     0.087     0.175             0
+  Truck Tractor both   476     0.071     0.114             1
+  Truck Tractor  dup     7     0.064     0.084             0
+  Truck Tractor   bg  4845     0.067     0.109             4
+ Truck w/Liquid   tp    12     0.253     0.285             6
+ Truck w/Liquid  cls   586     0.071     0.118             0
+ Truck w/Liquid  loc    15     0.065     0.131             0
+ Truck w/Liquid both   129     0.067     0.108             0
+ Truck w/Liquid  dup     1     0.059     0.059             0
+ Truck w/Liquid   bg  1270     0.067     0.112             1
+
+2. TP-vs-FP AUC of label-free signals (cond-AUC = within conf deciles; 0.5 = no extra signal)
+class               Cargo Truck  Truck w/Box  Truck w/Flatbed  Truck Tractor  Truck w/Liquid
+n                     16778.000     9338.000         6043.000       6427.000        2013.000
+TP                      657.000      426.000           99.000         65.000          12.000
+AUC conf                  0.862        0.898            0.909          0.736           0.924
+AUC side                  0.596        0.675            0.662          0.619           0.699
+cond-AUC side             0.495        0.539            0.502          0.595           0.797
+AUC aspect                0.628        0.505            0.730          0.542           0.575
+cond-AUC aspect           0.564        0.507            0.530          0.487           0.726
+AUC margin                0.633        0.756            0.850          0.570           0.858
+cond-AUC margin           0.548        0.566            0.667          0.571           0.878
+AUC n_classes             0.768        0.726            0.629          0.539           0.603
+cond-AUC n_classes        0.472        0.425            0.356          0.424           0.411
+AUC density               0.676        0.731            0.679          0.529           0.487
+cond-AUC density          0.526        0.547            0.533          0.455           0.300

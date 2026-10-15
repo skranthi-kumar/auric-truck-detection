@@ -1,0 +1,16 @@
+# P6 class-balanced probe (DECLARED 11 Oct before running; reviewer item 2): ONE change vs LC_rand_0250_s0
+# (same subset, seed, 1280, batch 16): tile-level repeat-factor sampling t=0.25 within the subset (Gupta et al. 2019),
+# iteration-matched to 30 epochs of the unrepeated list.
+# Rule (mean over s0/s1 vs LC_rand_0250_s0/s1): PASS if mean Tractor AP and mean Flatbed AP both rise AND mean
+# Cargo and Box each fall by less than the 25% seed spread of that class; then mean mAP50 gain >= +0.010 -> one full run.
+name: P6_rfs25_s0
+model: yolo11s.pt
+imgsz: 1280
+epochs: 30
+iter_match: true
+batch: 16
+seed: 0
+save_period: -1
+subset: experiments/splits/random_s0_0250.txt
+repeat_rfs: true
+train_args: {device: "0,1"}

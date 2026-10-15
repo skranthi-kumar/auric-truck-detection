@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.pt
+*.pth
+CV_Assignment_AAL/
+CV_clean/
+runs/

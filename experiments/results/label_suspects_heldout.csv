@@ -1,0 +1,3 @@
+image,label,detector,det_score,score_of_label,xview
+871,Truck w/Flatbed,Truck w/Box,0.5412699580192566,0.08055982738733292,
+893,Truck w/Flatbed,Truck w/Box,0.5537655353546143,0.060825165361166,

@@ -1,0 +1,12 @@
+# P3 probe arm 3 (added 10 Oct): ONE change vs LC_rand_0250_s0: 3x upsampling (imgsz 1920 on the same 640 tiles; E1 = 2x at 1280).
+# Evidence: H-res supported (1x->2x +0.034, gain on small objects); hard-missed population median 13.7 px. Batch 8 (memory, 2.25x pixels).
+# DECLARED before run: same PASS rule as P3: mAP50 >= 0.064 AND class-agnostic AP50 > LC_rand_0250_s0. Inference at imgsz 1920 (predict uses cfg imgsz).
+name: P3_up3_25_s0
+model: yolo11s.pt
+imgsz: 1920
+epochs: 30
+batch: 8
+seed: 0
+save_period: -1
+subset: experiments/splits/random_s0_0250.txt
+train_args: {device: "0,1"}

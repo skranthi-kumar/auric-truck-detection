@@ -1,0 +1,12 @@
+# P7 cross-fitting half B (DECLARED 11 Oct; reviewer item 1): same recipe as LC_rand_0500_s0 (30 ep, 1280, batch 16,
+# seed 0) on the COMPLEMENT of random_s0_0500 (220 images). Half-A model = LC_rand_0500_s0 (existing).
+# Each half model predicts the train images it did not see -> out-of-sample detections for the learned context model.
+name: P7_halfB_s0
+model: yolo11s.pt
+imgsz: 1280
+epochs: 30
+batch: 16
+seed: 0
+save_period: -1
+subset_complement: experiments/splits/random_s0_0500.txt
+train_args: {device: "0,1"}

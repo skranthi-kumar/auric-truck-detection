@@ -1,0 +1,13 @@
+class,set,n_fp,become_tp,share
+Cargo Truck,top400 FP,400,19,0.0475
+Cargo Truck,FP conf>=0.25,327,19,0.0581039755351682
+Truck w/Box,top400 FP,400,18,0.045
+Truck w/Box,FP conf>=0.25,330,15,0.045454545454545456
+Truck w/Flatbed,top400 FP,400,8,0.02
+Truck w/Flatbed,FP conf>=0.25,40,6,0.15
+Truck Tractor,top400 FP,400,3,0.0075
+Truck Tractor,FP conf>=0.25,4,2,0.5
+Truck w/Liquid,top400 FP,400,1,0.0025
+Truck w/Liquid,FP conf>=0.25,1,1,1.0
+ALL,top400 FP,2000,49,0.0245
+ALL,FP conf>=0.25,702,43,0.06125356125356125
