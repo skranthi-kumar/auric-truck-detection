@@ -14,7 +14,7 @@ sampling). Reproduce with `bash reproduce_rfx.sh` (GPU recommended).
 2× tiles, 4-checkpoint WBF, fixed context rule. Reproduce with `bash reproduce.sh`.
 Evaluation on full validation images uses a single in-repo evaluator (`src/evaluate.py`, verified identical to pycocotools).
 
-Report: `report/report.pdf` (main report, 6 pages; also `.docx` and `REPORT.md`) · technical appendix `report/report_full.pdf` (30 pages; also `.docx` and `REPORT_FULL.md`) · Experiment records: `experiments/LOG.md` · Decisions with evidence: `DECISIONS.md`
+Report: `report/report.pdf` (main report, 6 pages; source `REPORT.md`) · technical appendix `report/report_full.pdf` (32 pages; source `REPORT_FULL.md`) · Experiment records: `experiments/LOG.md` · Decisions with evidence: `DECISIONS.md`
 
 ## Layout
 ```
